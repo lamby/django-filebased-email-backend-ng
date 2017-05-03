@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import os
 import shutil
 import mimetypes
@@ -22,8 +24,8 @@ class EmailBackend(BaseEmailBackend):
 
             # Write out raw email
             with open(os.path.join(base, 'raw.log'), 'w') as f:
-                print >>f, '%s' % message.message().as_string()
-                print >>f, '-' * 79
+                print('%s' % message.message().as_string(), file=f)
+                print('-' * 79, file=f)
 
             # Write out alternatives
             alternatives = getattr(message, 'alternatives', ())
