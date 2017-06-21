@@ -38,7 +38,7 @@ class EmailBackend(BaseEmailBackend):
                         or '.%s' % DEFAULT_ATTACHMENT_MIME_TYPE,
                 ))
 
-                with open(filename, 'w') as f:
+                with open(filename, 'wb') as f:
                     f.write(content.encode('utf8'))
 
             # Write out attachments
@@ -53,5 +53,5 @@ class EmailBackend(BaseEmailBackend):
                     mimetypes.guess_extension(mimetype) or '.txt',
                 ))
 
-                with open(filename, 'w') as f:
+                with open(filename, 'wb') as f:
                     f.write(content)
